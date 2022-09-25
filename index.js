@@ -87,7 +87,7 @@ console.log(newObj[1].Y);
 
 let arrTwo = { X: [1, 2, 3, 4, 5], Y: [6, 7, 8, 9, 10] };
 console.log(arrTwo.Y);
- 
+
 arrTwo.Z = "Rodrigo";
 console.log(arrTwo);
 console.log(arrTwo["Y"]);
@@ -152,10 +152,8 @@ var z;
 let anyArray = [1, 2, 3, 4, 5];
 anyArray.map((item, index) => console.log(item * 2, index));
 
-
 // typeof
 console.log(typeof z);
-
 
 //callback function passing through function
 function lastName(lm) {
@@ -165,4 +163,21 @@ function firstName(fm, lm, testCallback) {
   testCallback(lm);
   console.log(fm);
 }
-firstName("rodrigo", "marquez", lastName);
+// firstName("rodrigo", "marquez", lastName);
+
+// setInterval(() => lastName("rigo"), 3000);
+
+let newPromise = new Promise(function (resolve, reject) {
+  let i = false;
+  if (i) {
+    resolve("ok");
+  } else reject("error");
+});
+newPromise.then(
+  function (value) {
+    console.log(value);
+  },
+  function (error) {
+    console.log(error);
+  }
+);

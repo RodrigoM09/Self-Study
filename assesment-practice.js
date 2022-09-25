@@ -217,17 +217,23 @@ console.log(
 //  */
 function removeABC(str) {
   let mStr = str.split(" ");
+  let isRemoved = false;
   for (let i = 0; i < mStr.length; i++) {
-    if (mStr[i].includes("a")) {
+    if (
+      mStr[i].includes("a") ||
+      mStr[i].includes("b") ||
+      mStr[i].includes("c")
+    ) {
+      isRemoved = true;
     }
-    mStr[i] =
-      mStr[i].replace("a", "") ||
-      mStr[i].replace("b", "") ||
-      mStr[i].replace("c", "");
+    mStr[i] = mStr[i].replace("a", "");
+    mStr[i] = mStr[i].replace("b", "");
+    mStr[i] = mStr[i].replace("c", "");
   }
-  return mStr.join(" ");
+  return isRemoved ? mStr.join(" ") : null;
 }
 console.log(removeABC("This might be a bit hard"));
+console.log(removeABC("hello world!"));
 
 // /**
 //  Write a function called removeBs that takes in an array of strings and returns an array of strings with all b's removed from each string. Assume the array contains only string elements.
@@ -261,7 +267,6 @@ console.log(avScores(first, second, third));
 // Modify the function to accept an array of bowling scores and return the average
 let bowlingArr = [120, 234, 90];
 function bowlingAv(arr) {
-  let av = 0;
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
     sum = sum + arr[i];
