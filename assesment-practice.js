@@ -2,10 +2,17 @@
  
 -- Write a function that takes in an input, checks that input, 
 and returns true or false depending on some feature of the input (what kind of number, what kind of string, what type of data it is) **/
-function checkType(input) {
-  console.log(typeof input);
-}
+function checkType(input, feauture) {
+  let typeCheck = typeof input;
 
+  if (typeCheck === feauture) {
+    return true;
+  } else if (typeof parseFloat(input) === "number" && feature === "number") {
+    return `${input} is an alpha numeric string`;
+  } else {
+    return false;
+  }
+}
 checkType(9);
 
 /** -- Write a function that takes in an input, does something to it, 
