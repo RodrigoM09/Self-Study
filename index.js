@@ -181,3 +181,66 @@ newPromise.then(
     console.log(error);
   }
 );
+
+async function anyfunc() {
+  return "rodrigo";
+}
+console.log(
+  anyfunc().then(function (value) {
+    console.log(value);
+  })
+);
+
+async function newfunc() {
+  let newPromise = new Promise(function (resolve, reject) {
+    let i = true;
+    if (i) {
+      setTimeout(() => {
+        resolve("ok");
+      }, 3000);
+    } else reject("error");
+  });
+  console.log("newFunc", await newPromise);
+}
+newfunc();
+
+class School {
+  constructor(id) {
+    console.log("constructor", id);
+    this.id = id;
+  }
+  name() {
+    console.log("Texas", this.id);
+  }
+  static display() {
+    console.log("Nevada");
+  }
+}
+// var s = new School(1111);
+// s.name();
+School.display();
+
+var cmp = class {
+  constructor() {
+    console.log("anything");
+  }
+};
+var z = new cmp();
+
+class Coding {
+  constructor() {
+    var name;
+  }
+  getName() {
+    return this.name;
+  }
+  setName(name) {
+    this.name = name;
+  }
+}
+var y = new Coding();
+y.setName("myName");
+console.log(y.getName());
+
+let nombre = document.getElementById("one").innerText;
+console.log(nombre);

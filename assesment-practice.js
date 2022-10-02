@@ -2,10 +2,10 @@
  
 -- Write a function that takes in an input, checks that input, 
 and returns true or false depending on some feature of the input (what kind of number, what kind of string, what type of data it is) **/
-function checkType(input, feauture) {
+function checkType(input, feature) {
   let typeCheck = typeof input;
 
-  if (typeCheck === feauture) {
+  if (typeCheck === feature) {
     return true;
   } else if (typeof parseFloat(input) === "number" && feature === "number") {
     return `${input} is an alpha numeric string`;
@@ -26,13 +26,25 @@ modifyData([5, 10, 15, 20, 25]);
 
 // -- Write a function that takes in an array and returns the array modified in some way -- certain elements removed,
 // certain elements modified in a regular way (example, every numerical value doubled, every string uppercased)
-
+// Work with tutor example:
 function arrModified(arr) {
   for (let i = 0; i < arr.length; i++) {
     console.log(arr[i].toUpperCase());
   }
 }
 arrModified(["rodrigo", "marquez"]);
+
+// in class example:
+myArray = [0, 1, 2, , 3, 4, 5, 6, 7, 8, 9, 10];
+function removesOdds(array) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+}
 
 // -- Write a function that accepts an array of objects where each object has at least
 // one property with a numeric value, be able to return the total or average of the numeric values
@@ -49,8 +61,15 @@ averageNum([{ x: 2 }, { x: 4 }, { x: 6 }, { x: 8 }]);
 
 /** -- Write a function that accepts a string, breaks down the string into components, 
 and returns an object where each component of the string has become the value of a property */
-
-function breakDown() {}
+let components = "San Antonio, Texas";
+// function that returns an object of {city: san antonio, State: texas}
+function breakDown(components) {
+  return {
+    city: components.split(", ")[0],
+    state: components.split(", ")[1],
+  };
+}
+console.log(breakDown(components));
 
 // -- Write a function that analyzes a string, returning the results of the analysis, example, return the length of the string
 function lengthStr(str) {
@@ -174,6 +193,24 @@ console.log(
 //  *       }
 //  *    ]) ➞ [5, 5, 4]
 //  */
+const students = [
+  {
+    id: 1,
+    name: "Jacek",
+    notes: [5, 3, 4, 2, 5, 5],
+  },
+  {
+    id: 2,
+    name: "Ewa",
+    notes: [2, 3, 3, 3, 2, 5],
+  },
+  {
+    id: 3,
+    name: "Zygmunt",
+    notes: [2, 2, 4, 4, 3, 3],
+  },
+];
+
 function getStudentTopNotes(arr) {
   let topNotes = [];
   for (let i = 0; i < arr.length; i++) {
@@ -188,25 +225,7 @@ function getStudentTopNotes(arr) {
   }
   return topNotes;
 }
-console.log(
-  getStudentTopNotes([
-    {
-      id: 1,
-      name: "Jacek",
-      notes: [5, 3, 4, 2, 5, 5],
-    },
-    {
-      id: 2,
-      name: "Ewa",
-      notes: [2, 3, 3, 3, 2, 5],
-    },
-    {
-      id: 3,
-      name: "Zygmunt",
-      notes: [2, 2, 4, 4, 3, 3],
-    },
-  ])
-);
+console.log(getStudentTopNotes(students));
 
 // /**
 //  * TODO:
