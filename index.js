@@ -242,5 +242,37 @@ var y = new Coding();
 y.setName("myName");
 console.log(y.getName());
 
-let nombre = document.getElementById("one").innerText;
-console.log(nombre);
+// let nombre = document.getElementById("one").innerText;
+
+console.log(document.getElementsByTagName("p"));
+// document.getElementById("one").innerText = "marquez";
+
+document.getElementsByTagName("p")[0].innerText = "marquez";
+
+document.querySelector("p.last").innerHTML = "<p>Samuel</p>";
+
+// document.getElementById("clickMe").addEventListener("mouseout", () => {
+//   alert("You left me");
+// });
+
+// document.querySelector("p.last").addEventListener("mouseover", () => {
+//   alert("You moused over");
+// });
+
+setTimeout(function () {
+  // document.querySelector("p.last").classList.remove("last");
+  // document.querySelector("p").removeAttribute("style");
+  document.querySelector("p").style.color = "purple";
+}, 5000);
+
+let pTag = document.createElement("p");
+let pText = document.createTextNode("This is my custom tag");
+pTag.appendChild(pText);
+
+let divTag = document.querySelector("div");
+let bTag = document.getElementById("clickMe");
+// divTag.appendChild(pTag);
+// divTag.insertBefore(pTag, bTag);
+divTag.replaceChild(pTag, bTag);
+
+// bTag.remove();
