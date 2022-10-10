@@ -274,5 +274,30 @@ let bTag = document.getElementById("clickMe");
 // divTag.appendChild(pTag);
 // divTag.insertBefore(pTag, bTag);
 divTag.replaceChild(pTag, bTag);
-
 // bTag.remove();
+
+//Create ul and li with content being list of array elements.
+let arry = ["honda", "porsche", "ferrari", "lexus"];
+let uTag = document.querySelector("ul");
+for (let i = 0; i < arry.length; i++) {
+  let lTag = document.createElement("li");
+  lTag.textContent = arry[i];
+  uTag.appendChild(lTag);
+}
+
+function changeMe() {
+  let content = document.getElementById("text1");
+  content.style.color = "blue";
+  content.style.fontSize = "14px";
+}
+
+let numberofNodes = document.querySelectorAll("#list2 > li").length;
+let theVariable = document.querySelectorAll("#list2 > li:first-child");
+let secondOne = document.querySelectorAll(
+  "#list2 > li:nth-child(" + (numberofNodes - 1) + ")"
+);
+let lastC = document.querySelectorAll("#list2 > li:last-child");
+theVariable[0].textContent = "Rodrigo";
+lastC[0].textContent = "Marquez";
+secondOne[0].textContent = "Junior";
+console.log(numberofNodes);
